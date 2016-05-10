@@ -15,6 +15,9 @@ public class Student implements Parcelable {
         Age = age;
     }
 
+    public Student() {
+    }
+
     @Override
     public String toString() {
         return String.format("%s %s, age: %s", FirstName, LastName, Age);

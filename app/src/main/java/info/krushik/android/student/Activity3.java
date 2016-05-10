@@ -25,17 +25,17 @@ public class Activity3 extends AppCompatActivity {
         mButtonFinish = (Button) findViewById(R.id.btnFinish);
 
         Intent intent = getIntent();
-        String text = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
+        Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
 
-        mEditTextFirstName.setText(text);
-        mEditTextLastName.setText(text);
-        mEditTextAge.setText(text);
+        mEditTextFirstName.setText(student.FirstName);
+        mEditTextLastName.setText(student.LastName);
+        mEditTextAge.setText(student.Age);
 
         mButtonFinish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra(MainActivity.EXTRA_FIRSTNAME, mEditTextFirstName.getText().toString());
+                resultIntent.putExtra(MainActivity.EXTRA_STUDENT, mEditTextFirstName.getText().toString());
                 setResult(RESULT_OK,resultIntent);
                 finish();
             }

@@ -16,7 +16,9 @@
         android:id="@+id/etFirstName"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -24,7 +26,9 @@
         android:id="@+id/etLastName"
         android:layout_below="@+id/etFirstName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/etFirstName"
+        android:layout_alignEnd="@+id/etFirstName"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -32,7 +36,9 @@
         android:id="@+id/etAge"
         android:layout_below="@+id/etLastName"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/etLastName"
+        android:layout_alignEnd="@+id/etLastName"/>
 
     <Button
         android:layout_width="wrap_content"

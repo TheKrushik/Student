@@ -9,14 +9,17 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String EXTRA_STUDENT = "info.krushik.android.student.extra.STUDENT";
+//    public static final String EXTRA_STUDENT = "info.krushik.android.student.extra.STUDENT";
+    public static final String EXTRA_FIRSTNAME = "info.krushik.android.student.extra.FIRSTNAME";
+    public static final String EXTRA_LASTNAME = "info.krushik.android.student.extra.LASTNAME";
+    public static final String EXTRA_AGE = "info.krushik.android.student.extra.AGE";
     private static final int REQUEST_CODE_ACTIVITY3 = 1;
 
-    private TextView mTvFirstName;
-    private TextView mTvLastName;
-    private TextView mTvAge;
-    private Button mBtnReview;
-    private Button mBtnEditing;
+    private TextView mTextViewFirstName;
+    private TextView mTextViewLastName;
+    private TextView mTextViewAge;
+    private Button mButtonReview;
+    private Button mButtonEditing;
 
 
     @Override
@@ -24,37 +27,42 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTvFirstName = (TextView)findViewById(R.id.tvFirstName);
-        mTvLastName = (TextView)findViewById(R.id.tvLastName);
-        mTvAge = (TextView)findViewById(R.id.tvAge);
+        mTextViewFirstName = (TextView)findViewById(R.id.tvFirstName);
+        mTextViewLastName = (TextView)findViewById(R.id.tvLastName);
+        mTextViewAge = (TextView)findViewById(R.id.tvAge);
 
     }
 
     public void OnClick(View v){
+        Student student = new Student();
+
         switch (v.getId()){
             case R.id.btnReview:
                 Intent intent = new Intent(this, Activity2.class);
-
-                Student student = new Student();
-                intent.putExtra(EXTRA_STUDENT, student);
+                intent.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
+                intent.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
+                intent.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
                 startActivity(intent);
-
                 break;
             case R.id.btnEditing:
-                Intent intent2 = new Intent(this, Activity3.class);
-                Student student2 = new Student("Ivan", "Ivanov", 22);
-                intent2.putExtra(EXTRA_STUDENT, student2);
+                Intent intent3 = new Intent(this, Activity3.class);
+                intent3.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
+                intent3.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
+                intent3.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
 
-                startActivityForResult(intent2, REQUEST_CODE_ACTIVITY3);
-
+                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3);
                 break;
         }
 
     }
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ACTIVITY3 && resultCode == RESULT_OK){
-            String text =  data.getStringExtra(EXTRA_STUDENT);
-            mTvFirstName.setText(text);
+            String textFirstName =  data.getStringExtra(EXTRA_FIRSTNAME);
+            String textLastName =  data.getStringExtra(EXTRA_LASTNAME);
+            String textAge =  data.getStringExtra(EXTRA_AGE);
+            mTextViewFirstName.setText(textFirstName);
+            mTextViewLastName.setText(textLastName);
+            mTextViewAge.setText(textAge);
         }
     }
 }

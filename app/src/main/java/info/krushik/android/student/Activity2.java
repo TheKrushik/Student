@@ -17,12 +17,14 @@ public class Activity2 extends AppCompatActivity {
         mTextView = (TextView) findViewById(R.id.textView);
 
         Intent intent = getIntent();
-        Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
+        String firstName = intent.getParcelableExtra(MainActivity.EXTRA_FIRSTNAME);
+        String lastName = intent.getParcelableExtra(MainActivity.EXTRA_LASTNAME);
+        String age = intent.getParcelableExtra(MainActivity.EXTRA_AGE);
 
-//        textView.setText(student.FirstName + " " + student.LastName + " " + student.Age);
-//
+        mTextView.setText(firstName + " " + lastName + " " + age);
+
 //        textView.setText(String.format("%s %s, age: %s", student.FirstName, student.LastName, student.Age));
 
-        mTextView.setText(student.toString());
+//        mTextView.setText(student.toString());
     }
 }

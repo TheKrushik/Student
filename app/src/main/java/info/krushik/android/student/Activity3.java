@@ -12,7 +12,7 @@ public class Activity3 extends AppCompatActivity {
     private EditText mEditTextFirstName;
     private EditText mEditTextLastName;
     private EditText mEditTextAge;
-    private Button mButtonFinish;
+    private Button mButtonSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,21 +22,25 @@ public class Activity3 extends AppCompatActivity {
         mEditTextFirstName = (EditText) findViewById(R.id.etFirstName);
         mEditTextLastName = (EditText) findViewById(R.id.etLastName);
         mEditTextAge = (EditText) findViewById(R.id.etAge);
-        mButtonFinish = (Button) findViewById(R.id.btnFinish);
+        mButtonSave = (Button) findViewById(R.id.btnSave);
 
         Intent intent = getIntent();
-        Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
+        String textFirstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
+        String textLastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
+        String textAge = intent.getStringExtra(MainActivity.EXTRA_AGE);
 
-        mEditTextFirstName.setText(student.FirstName);
-        mEditTextLastName.setText(student.LastName);
-        mEditTextAge.setText(student.Age);
+        mEditTextFirstName.setText(textFirstName);
+        mEditTextLastName.setText(textLastName);
+        mEditTextAge.setText(textAge);
 
-        mButtonFinish.setOnClickListener(new View.OnClickListener() {
+        mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra(MainActivity.EXTRA_STUDENT, mEditTextFirstName.getText().toString());
-                setResult(RESULT_OK,resultIntent);
+                resultIntent.putExtra(MainActivity.EXTRA_FIRSTNAME, mEditTextFirstName.getText().toString());
+                resultIntent.putExtra(MainActivity.EXTRA_LASTNAME, mEditTextLastName.getText().toString());
+                resultIntent.putExtra(MainActivity.EXTRA_AGE, mEditTextAge.getText().toString());
+                setResult(RESULT_OK, resultIntent);
                 finish();
             }
         });

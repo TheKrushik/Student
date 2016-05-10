@@ -2,5 +2,5 @@
     <string name="app_name">Student</string>
     <string name="button_review">Просмотр</string>
     <string name="button_editing">Редактирование</string>
-    <string name="button_finish">Finish</string>
+    <string name="button_save">Save</string>
 </resources>

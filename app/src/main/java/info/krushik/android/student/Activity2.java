@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class Activity2 extends AppCompatActivity {
         String age = intent.getStringExtra(MainActivity.EXTRA_AGE);
 
         mTextView.setText(firstName + " " + lastName + ", age: " + age);
+        Toast.makeText(Activity2.this, R.string.toast_review, Toast.LENGTH_SHORT).show();
 
 //        textView.setText(String.format("%s %s, age: %s", student.FirstName, student.LastName, student.Age));
 

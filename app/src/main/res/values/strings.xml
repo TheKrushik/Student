@@ -4,4 +4,6 @@
     <string name="button_editing">Редактирование</string>
     <string name="button_save">Сохранить</string>
     <string name="menu_about">О программе</string>
+    <string name="toast_save">Изменения сохранены</string>
+    <string name="toast_review">Просмотр деталей студента</string>
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Activity3 extends AppCompatActivity {
 
@@ -36,13 +37,17 @@ public class Activity3 extends AppCompatActivity {
         mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra(MainActivity.EXTRA_FIRSTNAME, mEditTextFirstName.getText().toString());
                 resultIntent.putExtra(MainActivity.EXTRA_LASTNAME, mEditTextLastName.getText().toString());
                 resultIntent.putExtra(MainActivity.EXTRA_AGE, mEditTextAge.getText().toString());
                 setResult(RESULT_OK, resultIntent);
+                Toast.makeText(Activity3.this, R.string.toast_save, Toast.LENGTH_SHORT).show();
                 finish();
+
             }
+
         });
 
     }

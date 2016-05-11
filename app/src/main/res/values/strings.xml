@@ -2,5 +2,6 @@
     <string name="app_name">Student</string>
     <string name="button_review">Просмотр</string>
     <string name="button_editing">Редактирование</string>
-    <string name="button_save">Save</string>
+    <string name="button_save">Сохранить</string>
+    <string name="menu_about">О программе</string>
 </resources>

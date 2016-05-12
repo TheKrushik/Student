@@ -31,22 +31,34 @@ public class Activity3 extends AppCompatActivity {
         mButtonSave = (Button) findViewById(R.id.btnSave);
 
         Intent intent = getIntent();
-        String textFirstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
-        String textLastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
-        String textAge = intent.getStringExtra(MainActivity.EXTRA_AGE);
 
-        mEditTextFirstName.setText(textFirstName);
-        mEditTextLastName.setText(textLastName);
-        mEditTextAge.setText(textAge);
+        final Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
+
+//        String textFirstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
+//        String textLastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
+//        String textAge = intent.getStringExtra(MainActivity.EXTRA_AGE);
+
+        mEditTextFirstName.setText(student.FirstName.toString());
+        mEditTextLastName.setText(student.LastName.toString());
+        mEditTextAge.setText(String.valueOf(student.Age));
+
+//        mEditTextFirstName.setText(textFirstName);
+//        mEditTextLastName.setText(textLastName);
+//        mEditTextAge.setText(textAge);
 
         mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent resultIntent = new Intent();
-                resultIntent.putExtra(MainActivity.EXTRA_FIRSTNAME, mEditTextFirstName.getText().toString());
-                resultIntent.putExtra(MainActivity.EXTRA_LASTNAME, mEditTextLastName.getText().toString());
-                resultIntent.putExtra(MainActivity.EXTRA_AGE, mEditTextAge.getText().toString());
+                student.FirstName = mEditTextFirstName.getText().toString();
+                student.LastName = mEditTextLastName.getText().toString();
+                student.Age = Integer.parseInt(mEditTextAge.getText().toString());
+
+                resultIntent.putExtra(MainActivity.EXTRA_STUDENT, student);
+//                resultIntent.putExtra(MainActivity.EXTRA_FIRSTNAME, mEditTextFirstName.getText().toString());
+//                resultIntent.putExtra(MainActivity.EXTRA_LASTNAME, mEditTextLastName.getText().toString());
+//                resultIntent.putExtra(MainActivity.EXTRA_AGE, mEditTextAge.getText().toString());
                 setResult(RESULT_OK, resultIntent);
                 finish();
 
@@ -75,4 +87,6 @@ public class Activity3 extends AppCompatActivity {
         });
 
     }
+
+
 }

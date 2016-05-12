@@ -18,15 +18,16 @@ public class Activity2 extends AppCompatActivity {
         mTextView = (TextView) findViewById(R.id.textView);
 
         Intent intent = getIntent();
-        String firstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
-        String lastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
-        String age = intent.getStringExtra(MainActivity.EXTRA_AGE);
+        Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
+//        String firstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
+//        String lastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
+//        String age = intent.getStringExtra(MainActivity.EXTRA_AGE);
 
-        mTextView.setText(firstName + " " + lastName + ", age: " + age);
         Toast.makeText(Activity2.this, R.string.toast_review, Toast.LENGTH_SHORT).show();
 
+//        mTextView.setText(firstName + " " + lastName + ", age: " + age);
 //        textView.setText(String.format("%s %s, age: %s", student.FirstName, student.LastName, student.Age));
 
-//        mTextView.setText(student.toString());
+        mTextView.setText(student.toString());
     }
 }

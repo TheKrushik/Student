@@ -2,6 +2,7 @@ package info.krushik.android.student;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.Editable;
 
 public class Student implements Parcelable {
 
@@ -17,6 +18,8 @@ public class Student implements Parcelable {
 
     public Student() {
     }
+
+
 
     @Override
     public String toString() {

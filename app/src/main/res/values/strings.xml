@@ -9,4 +9,8 @@
     <string name="student_editing">Данные изменены</string>
     <string name="student_edit">Изменение</string>
     <string name="student_save">Студент сохранен</string>
+    <string name="student_name">Имя</string>
+    <string name="student_surname">Фамилия</string>
+    <string name="student_age">Возраст</string>
+    <string name="toast_age_zero">Стать студентом \n в 0 лет невозможно!!!</string>
 </resources>

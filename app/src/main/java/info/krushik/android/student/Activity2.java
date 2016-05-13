@@ -10,6 +10,7 @@ public class Activity2 extends AppCompatActivity {
 
     public TextView mTextView;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,8 @@ public class Activity2 extends AppCompatActivity {
 
 //        mTextView.setText(firstName + " " + lastName + ", age: " + age);
 //        textView.setText(String.format("%s %s, age: %s", student.FirstName, student.LastName, student.Age));
-
-        mTextView.setText(student.toString());
+        if(student.Age != 0) {
+            mTextView.setText(student.toString());
+        }
     }
 }

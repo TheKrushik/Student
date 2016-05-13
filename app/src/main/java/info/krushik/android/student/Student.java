@@ -23,6 +23,7 @@ public class Student implements Parcelable {
 
     @Override
     public String toString() {
+
         return String.format("%s %s, age: %s", FirstName, LastName, Age);
     }
 

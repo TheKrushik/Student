@@ -3,6 +3,7 @@ package info.krushik.android.student;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,30 +37,58 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClick(View v) {
-        Student student = new Student();
-//        Student student = new Student("Ivan", "Ivanov",  0);
-        student.FirstName = mTextViewFirstName.getText().toString();
-        student.LastName = mTextViewLastName.getText().toString();
-        student.Age = Integer.parseInt(mTextViewAge.getText().toString());
+//        Student student = new Student();
+//        Student student = new Student("Ivan", "Ivanov",  22);
+//        student.FirstName = mTextViewFirstName.getText().toString();
+//        student.LastName = mTextViewLastName.getText().toString();
+//        student.Age = Integer.parseInt(mTextViewAge.getText().toString());
 
         switch (v.getId()) {
-            case R.id.btnReview:
-                Intent intent = new Intent(this, Activity2.class);
-                intent.putExtra(EXTRA_STUDENT, student);
-//                intent.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
-//                intent.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
-//                intent.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
-                startActivity(intent);
-                break;
-            case R.id.btnEditing:
-                Intent intent3 = new Intent(this, Activity3.class);
-                intent3.putExtra(EXTRA_STUDENT, student);
-//                intent3.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
-//                intent3.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
-//                intent3.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
+            case R.id.tvFirstName:
+            case R.id.tvLastName:
+            case R.id.tvAge:
+                PopupMenu popupMenu = new PopupMenu(this, mTextViewAge);
+                popupMenu.inflate(R.menu.menu_popup);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem){
+                        Student student = new Student("Ivan", "Ivanov",  22);
 
-                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3);
+                        switch (menuItem.getItemId()) {
+                            case R.id.menu_review:
+                                Intent intent = new Intent(MainActivity.this, Activity2.class);
+                                intent.putExtra(EXTRA_STUDENT, student);
+                                startActivity(intent);
+                                break;
+                            case R.id.menu_editing:
+                                Intent intent3 = new Intent(MainActivity.this, Activity3.class);
+                                intent3.putExtra(EXTRA_STUDENT, student);
+
+                                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3);
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
                 break;
+//            case R.id.btnReview:
+//                Intent intent = new Intent(this, Activity2.class);
+//                intent.putExtra(EXTRA_STUDENT, student);
+////                intent.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
+////                intent.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
+////                intent.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
+//                startActivity(intent);
+//                break;
+//            case R.id.btnEditing:
+//                Intent intent3 = new Intent(this, Activity3.class);
+//                intent3.putExtra(EXTRA_STUDENT, student);
+////                intent3.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
+////                intent3.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
+////                intent3.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
+//
+//                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3);
+//                break;
         }
 
     }

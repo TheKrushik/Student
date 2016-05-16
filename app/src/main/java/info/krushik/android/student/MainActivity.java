@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnClick(View v) {
         Student student = new Student();
-//        Student student = new Student("Ivan", "Ivanov",  22);
         student.FirstName = mTextViewFirstName.getText().toString();
         student.LastName = mTextViewLastName.getText().toString();
         if(mTextViewAge.getText().toString() != ""){
@@ -83,17 +82,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btnReview:
                 Intent intent = new Intent(this, Activity2.class);
                 intent.putExtra(EXTRA_STUDENT, student);
-//                intent.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
-//                intent.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
-//                intent.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
+
                 startActivity(intent);
                 break;
             case R.id.btnEditing:
                 Intent intent3 = new Intent(this, Activity3.class);
                 intent3.putExtra(EXTRA_STUDENT, student);
-//                intent3.putExtra(EXTRA_FIRSTNAME, mTextViewFirstName.getText().toString());
-//                intent3.putExtra(EXTRA_LASTNAME, mTextViewLastName.getText().toString());
-//                intent3.putExtra(EXTRA_AGE, mTextViewAge.getText().toString());
 
                 startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3);
                 break;
@@ -104,16 +98,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE_ACTIVITY3 && resultCode == RESULT_OK) {
             Student student = data.getParcelableExtra(EXTRA_STUDENT);
-//            String textFirstName =  data.getStringExtra(EXTRA_FIRSTNAME);
-//            String textLastName =  data.getStringExtra(EXTRA_LASTNAME);
-//            String textAge =  data.getStringExtra(EXTRA_AGE);
 
             mTextViewFirstName.setText(student.FirstName.toString());
             mTextViewLastName.setText(student.LastName.toString());
             mTextViewAge.setText(String.valueOf(student.Age));
-//            mTextViewFirstName.setText(textFirstName);
-//            mTextViewLastName.setText(textLastName);
-//            mTextViewAge.setText(textAge);
         }
     }
 

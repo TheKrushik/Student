@@ -20,9 +20,6 @@ public class Activity2 extends AppCompatActivity {
 
         Intent intent = getIntent();
         Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
-//        String firstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
-//        String lastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
-//        String age = intent.getStringExtra(MainActivity.EXTRA_AGE);
 
         Toast.makeText(Activity2.this, R.string.toast_review, Toast.LENGTH_SHORT).show();
 

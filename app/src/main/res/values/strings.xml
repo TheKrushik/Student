@@ -12,5 +12,8 @@
     <string name="student_name">Имя</string>
     <string name="student_surname">Фамилия</string>
     <string name="student_age">Возраст</string>
-    <string name="toast_age_zero">Стать студентом \n в 0 лет невозможно!!!</string>
+    <string name="toast_age_zero">Стать студентом \nв 0 лет невозможно!!!</string>
+    <string name="enter_student_age">Введите возраст студента</string>
+    <string name="enter_student_lastname">Введите Фамилию студента</string>
+    <string name="enter_student_firstname">Введите имя студента</string>
 </resources>

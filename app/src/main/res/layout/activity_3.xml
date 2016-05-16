@@ -11,42 +11,47 @@
     tools:context="info.krushik.android.student.Activity3">
 
     <EditText
+        android:id="@+id/etFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etFirstName"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:inputType="textPersonName"
+        android:hint="@string/enter_student_firstname"/>
 
     <EditText
+        android:id="@+id/etLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etLastName"
-        android:layout_below="@+id/etFirstName"
+        android:layout_alignEnd="@+id/etFirstName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/etFirstName"
-        android:layout_alignEnd="@+id/etFirstName"/>
+        android:layout_below="@+id/etFirstName"
+        android:inputType="textPersonName"
+        android:hint="@string/enter_student_lastname"/>
 
     <EditText
+        android:id="@+id/etAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/etAge"
-        android:layout_below="@+id/etLastName"
+        android:layout_alignEnd="@+id/etLastName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/etLastName"
-        android:layout_alignEnd="@+id/etLastName"
-        android:inputType="numberDecimal"/>
+        android:layout_below="@+id/etLastName"
+        android:inputType="numberDecimal"
+        android:hint="@string/enter_student_age"/>
 
     <Button
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_save"
-        android:id="@+id/btnSave"
-        android:layout_below="@+id/etAge"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etAge"
+        android:text="@string/button_save"/>
 </RelativeLayout>

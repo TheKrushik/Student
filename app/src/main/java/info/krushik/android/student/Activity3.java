@@ -35,19 +35,12 @@ public class Activity3 extends AppCompatActivity {
 
         final Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
 
-//        String textFirstName = intent.getStringExtra(MainActivity.EXTRA_FIRSTNAME);
-//        String textLastName = intent.getStringExtra(MainActivity.EXTRA_LASTNAME);
-//        String textAge = intent.getStringExtra(MainActivity.EXTRA_AGE);
-
         mEditTextFirstName.setText(student.FirstName.toString());
         mEditTextLastName.setText(student.LastName.toString());
         if(student.Age != 0) {
             mEditTextAge.setText(String.valueOf(student.Age));
         }
 
-//        mEditTextFirstName.setText(textFirstName);
-//        mEditTextLastName.setText(textLastName);
-//        mEditTextAge.setText(textAge);
 
         mButtonSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,9 +57,7 @@ public class Activity3 extends AppCompatActivity {
                     toast.show();
                 }else{
                     resultIntent.putExtra(MainActivity.EXTRA_STUDENT, student);
-//                resultIntent.putExtra(MainActivity.EXTRA_FIRSTNAME, mEditTextFirstName.getText().toString());
-//                resultIntent.putExtra(MainActivity.EXTRA_LASTNAME, mEditTextLastName.getText().toString());
-//                resultIntent.putExtra(MainActivity.EXTRA_AGE, mEditTextAge.getText().toString());
+
                     setResult(RESULT_OK, resultIntent);
                     finish();
 

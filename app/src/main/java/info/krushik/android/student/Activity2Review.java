@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Activity2 extends AppCompatActivity {
+public class Activity2Review extends AppCompatActivity {
 
     public TextView mTextView;
 
@@ -21,7 +21,7 @@ public class Activity2 extends AppCompatActivity {
         Intent intent = getIntent();
         Student student = intent.getParcelableExtra(MainActivity.EXTRA_STUDENT);
 
-        Toast.makeText(Activity2.this, R.string.toast_review, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Activity2Review.this, R.string.toast_review, Toast.LENGTH_SHORT).show();
 
 //        mTextView.setText(firstName + " " + lastName + ", age: " + age);
 //        textView.setText(String.format("%s %s, age: %s", student.FirstName, student.LastName, student.Age));

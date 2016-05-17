@@ -15,9 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Activity2">
+        <activity android:name=".Activity2Review">
         </activity>
-        <activity android:name=".Activity3">
+        <activity android:name=".Activity3Add">
         </activity>
         <activity android:name=".AboutActivity">
         </activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for

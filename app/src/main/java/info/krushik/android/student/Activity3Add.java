@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Activity3 extends AppCompatActivity {
+public class Activity3Add extends AppCompatActivity {
 
     private EditText mEditTextFirstName;
     private EditText mEditTextLastName;
@@ -52,7 +52,7 @@ public class Activity3 extends AppCompatActivity {
                 student.Age = Integer.parseInt(mEditTextAge.getText().toString());
 
                 if(student.Age == 0) {
-                    Toast toast = Toast.makeText(Activity3.this, R.string.toast_age_zero, Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(Activity3Add.this, R.string.toast_age_zero, Toast.LENGTH_LONG);
                     toast.setGravity(Gravity.TOP, 0, 250);
                     toast.show();
                 }else{
@@ -61,14 +61,14 @@ public class Activity3 extends AppCompatActivity {
                     setResult(RESULT_OK, resultIntent);
                     finish();
 
-                    Toast.makeText(Activity3.this, R.string.toast_save, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Activity3Add.this, R.string.toast_save, Toast.LENGTH_SHORT).show();
 
-                    Intent intentNotification = new Intent(Activity3.this, MainActivity.class);
-                    PendingIntent pendingIntent = PendingIntent.getActivity(Activity3.this, 0, intentNotification, 0);
+                    Intent intentNotification = new Intent(Activity3Add.this, MainActivity.class);
+                    PendingIntent pendingIntent = PendingIntent.getActivity(Activity3Add.this, 0, intentNotification, 0);
 
                     NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-                    Notification notification = new NotificationCompat.Builder(Activity3.this)
+                    Notification notification = new NotificationCompat.Builder(Activity3Add.this)
                             .setAutoCancel(true)
                             .setSmallIcon(R.drawable.about)
                             .setDefaults(Notification.DEFAULT_ALL)

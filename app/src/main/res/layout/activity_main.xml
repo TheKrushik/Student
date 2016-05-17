@@ -69,5 +69,12 @@
         android:layout_toRightOf="@+id/btnReview"
         android:onClick="OnClick"
         android:text="@string/button_editing"/>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnReview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

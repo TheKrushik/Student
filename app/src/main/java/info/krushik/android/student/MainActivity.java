@@ -8,8 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +36,21 @@ public class MainActivity extends AppCompatActivity {
         mTextViewFirstName = (TextView) findViewById(R.id.tvFirstName);
         mTextViewLastName = (TextView) findViewById(R.id.tvLastName);
         mTextViewAge = (TextView) findViewById(R.id.tvAge);
+
+        ArrayList<Student> arr = new ArrayList<>();
+        arr.add(new Student("Ivan0", "Ivanov0", 20));
+        arr.add(new Student("Ivan1", "Ivanov1", 21));
+        arr.add(new Student("Ivan2", "Ivanov2", 22));
+
+
+        StudentAdapter adapter = new StudentAdapter(
+                this,
+                R.layout.list_item,
+                arr
+        );
+
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
 
     }
 

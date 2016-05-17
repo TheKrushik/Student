@@ -90,9 +90,9 @@ public class MainActivity extends AppCompatActivity {
                                 student.LastName = arr.get(position).LastName;
                                 student.Age = arr.get(position).Age;
 
-                                Intent intent3 = new Intent(MainActivity.this, Activity3Add.class);
+                                Intent intent3 = new Intent(MainActivity.this, Activity4Editing.class);
                                 intent3.putExtra(EXTRA_STUDENT, student);
-                                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3_ADD);
+                                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY4_EDITING);
 
                                 break;
                             case R.id.menu_delete:
@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                                 Intent intent3 = new Intent(MainActivity.this, Activity3Add.class);
                                 intent3.putExtra(EXTRA_STUDENT, student);
 
-                                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3_ADD);
+                                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY4_EDITING);
                                 break;
                         }
                         return false;
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent3 = new Intent(this, Activity3Add.class);
                 intent3.putExtra(EXTRA_STUDENT, student);
 
-                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY3_ADD);
+                startActivityForResult(intent3, REQUEST_CODE_ACTIVITY4_EDITING);
                 break;
             case R.id.btnAddStudent:
                 Intent intent4 = new Intent(this, Activity3Add.class);
@@ -177,20 +177,19 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
+            Student student = data.getParcelableExtra(EXTRA_STUDENT);
             switch (requestCode) {
                 case REQUEST_CODE_ACTIVITY3_ADD:
-                    Student student = data.getParcelableExtra(EXTRA_STUDENT);
-
-                    mTextViewFirstName.setText(student.FirstName.toString());
-                    mTextViewLastName.setText(student.LastName.toString());
-                    mTextViewAge.setText(String.valueOf(student.Age));
-
                     arr.add(new Student(
                             student.FirstName.toString(),
                             student.LastName.toString(),
                             student.Age));
                 case REQUEST_CODE_ACTIVITY4_EDITING:
-//                    arr.set();
+                    mTextViewFirstName.setText(student.FirstName.toString());
+                    mTextViewLastName.setText(student.LastName.toString());
+                    mTextViewAge.setText(String.valueOf(student.Age));
+//                    student.FirstName = arr.set(position)
+
             }
 //
         }
